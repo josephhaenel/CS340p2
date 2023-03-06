@@ -5,9 +5,6 @@ import os
 import BST
 import RB
 
-# Add support for printing to ouput file InOrderTreeTraversal
-# Add Support for other files
-
 selectedFile = ''
 numFiles = 0
 treeType = 'BST'
@@ -212,7 +209,7 @@ def main():
 
                     while (True):
                         choice = input(
-    '''
+                            '''
     ---------- Menu ----------
     | 1 : Search             |
     | 2 : InOrderTraversal   |
@@ -243,24 +240,31 @@ def main():
                                         print(searchVal, 'was NOT found in the tree in',
                                               totalTime, 'seconds')
                             case '2':
-                                val = BST.myTree.inOrderTraversal(BST.myTree.root)
+                                val = BST.myTree.inOrderTraversal(
+                                    BST.myTree.root)
                                 fileOut = open('BSTTraversal.txt', 'w')
                                 for line in val:
                                     fileOut.writelines(line + '\n')
-                                
+
                                 fileOut.close()
-                                
+                                print(
+                                    '\nIn order traversal outputted to BSTTraversal.txt')
+
                             case '3':
-                                val = input('Enter a key to print the parent key of: ')
+                                val = input(
+                                    'Enter a key to print the parent key of: ')
                                 BST.myTree.printParentKey(val)
                             case '4':
-                                val = input('Enter a key to print the left child of: ')
+                                val = input(
+                                    'Enter a key to print the left child of: ')
                                 BST.myTree.printLeftChild(val)
                             case '5':
-                                val = input('Enter a key to print the right child of: ')
+                                val = input(
+                                    'Enter a key to print the right child of: ')
                                 BST.myTree.printRightChild(val)
                             case '6':
-                                val = input('Enter a key to print the path to root of: ')
+                                val = input(
+                                    'Enter a key to print the path to root of: ')
                                 BST.myTree.printPathToRoot(val)
                             case '7':
                                 break
@@ -270,7 +274,8 @@ def main():
                 except IOError:
                     print(fileDestination + ' failed to open')
 
-        if i == 1 and (treeType == 'R-B' or treeType == 'BOTH'):  # Do R-B Stuff ---------------------------=========================
+        # Do R-B Stuff ---------------------------=========================
+        if i == 1 and (treeType == 'R-B' or treeType == 'BOTH'):
             if selectedFile == 'OTHER':  # Different file
                 try:
                     fileDestination = os.path.join(
@@ -295,7 +300,7 @@ def main():
                     totalTime = startTime - endTime
 
                     print("Time taken to construct R-B from",
-                        fileName, ":", totalTime)
+                          fileName, ":", totalTime)
                     searchVal = '0'
 
                     while (True):
@@ -329,10 +334,10 @@ def main():
 
                                     if found != None:
                                         print(searchVal, 'was found in the tree in',
-                                            totalTime, 'seconds')
+                                              totalTime, 'seconds')
                                     else:
                                         print(searchVal, 'was NOT found in the tree in',
-                                            totalTime, 'seconds')
+                                              totalTime, 'seconds')
                             case '2':
                                 val = RB.myTree.InOrderTreeTraversal(
                                     RB.myTree.root)
@@ -341,6 +346,9 @@ def main():
                                     fileOut.writelines(line + '\n')
 
                                 fileOut.close()
+
+                                print(
+                                    '\nIn order tree traversal outputted to RBTraversal.txt')
                             case '3':
                                 val = input(
                                     'Enter a key to print the parent key of: ')
@@ -358,16 +366,20 @@ def main():
                                     'Enter a key to print the path to root of: ')
                                 RB.myTree.PrintPathToRoot(val)
                             case '7':
-                                val = input('Enter a key to print the color of: ')
+                                val = input(
+                                    'Enter a key to print the color of: ')
                                 RB.myTree.PrintColor(val)
                             case '8':
-                                val = input('Enter a key to print the parents color of: ')
+                                val = input(
+                                    'Enter a key to print the parents color of: ')
                                 RB.myTree.PrintParentColor(val)
                             case '9':
-                                val = input('Enter a key to print uncle color of: ')
+                                val = input(
+                                    'Enter a key to print uncle color of: ')
                                 RB.myTree.PrintUncleColor(val)
                             case '10':
-                                val = input('Enter a key to print the depth of: ')
+                                val = input(
+                                    'Enter a key to print the depth of: ')
                                 if val is not None:
                                     RB.myTree.PrintDepth(val)
                                 else:
@@ -376,7 +388,6 @@ def main():
                                 break
                             case _:
                                 print('*** Invalid input, please try again. ***')
-
 
                 except IOError:  # File failed to be opened
                     print(
@@ -419,7 +430,7 @@ def main():
                     totalTime = endTime - startTime
 
                     print('Time taken to construct R-B tree with', numFiles * 15, 'k words',
-                        'from', fileType, ':', totalTime)  # Printing time taken for construction
+                          'from', fileType, ':', totalTime)  # Printing time taken for construction
 
                     searchVal = '0'
 
@@ -454,18 +465,20 @@ def main():
 
                                     if found != None:
                                         print(searchVal, 'was found in the tree in',
-                                                totalTime, 'seconds')
+                                              totalTime, 'seconds')
                                     else:
                                         print(searchVal, 'was NOT found in the tree in',
-                                                totalTime, 'seconds')
+                                              totalTime, 'seconds')
                             case '2':
                                 val = RB.myTree.InOrderTreeTraversal(
                                     RB.myTree.root)
                                 if j == 0:
                                     fileOut = open('PERM_RBTraversal.txt', 'w')
+                                    print('\nOutputted to PERM_RBTraversal.txt')
                                 else:
                                     fileOut = open(
                                         'SORTED_RBTraversal.txt', 'w')
+                                    print('\nOutputted to SORTED_RBTraversal.txt')
                                 for line in val:
                                     fileOut.writelines(line + '\n')
 
@@ -512,8 +525,7 @@ def main():
                                     '*** Invalid input, please try again. ***')
 
                 except IOError:
-                    print(fileDestination + ' failed to open')                
- 
+                    print(fileDestination + ' failed to open')
 
 
 if __name__ == '__main__':

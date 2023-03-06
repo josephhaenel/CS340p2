@@ -81,12 +81,6 @@ class Tree:
         right_vals = self.inOrderTraversal(node.right)
         return left_vals + [node.key] + right_vals
 
-
-    # def inorderTreeTraversal(self, sNode):
-    #     if sNode != None:
-    #         self.inorderTreeTraversal(sNode.left)
-    #         print(sNode.key)
-    #         self.inorderTreeTraversal(sNode.right)
             
 # Testing
 if __name__ == "__main__":
